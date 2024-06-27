@@ -72,7 +72,9 @@ extension ViewController: UICollectionViewDelegate {
 
 extension ViewController: SearchViewModelDelegate {
     func didSearchError(error: String) {
-        print("error = \(error)")
+        let alert = UIAlertController(title: error, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
     func didUpdateTrack() {
@@ -82,6 +84,8 @@ extension ViewController: SearchViewModelDelegate {
     }
     
     func didPlayFail(error: String) {
-        print("error = \(error)")
+        let alert = UIAlertController(title: error, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }

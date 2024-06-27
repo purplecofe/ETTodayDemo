@@ -36,7 +36,6 @@ class SearchViewModel: NSObject {
                 tracks = response.results.map { result -> SearchResultModel in
                     let trackTime: String?
                     if let trackTimeMillis = result.trackTimeMillis {
-                        print(trackTimeMillis)
                         let hours = trackTimeMillis / 3600000
                         let minutes = (trackTimeMillis % 3600000) / 60000
                         let seconds = (trackTimeMillis % 60000) / 1000
@@ -102,11 +101,5 @@ class SearchViewModel: NSObject {
     
     func clearTracks() {
         tracks.removeAll()
-    }
-}
-
-extension SearchViewModel: AVAudioPlayerDelegate {
-    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        print("error = \(error)")
     }
 }
